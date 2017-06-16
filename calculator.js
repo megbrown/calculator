@@ -15,16 +15,16 @@ var secondNumberInput = document.getElementById("number2");
 var resultOutput = document.getElementById("result");
 
 addBtn.addEventListener("click", function() {
-  resultOutput.innerHTML = add(firstNumberInput.value, secondNumberInput.value);
+  resultOutput.innerHTML = calculate(firstNumberInput.value, secondNumberInput.value, add);
 })
 subtractBtn.addEventListener("click", function() {
-  resultOutput.innerHTML = subtract(firstNumberInput.value, secondNumberInput.value);
+  resultOutput.innerHTML = calculate(firstNumberInput.value, secondNumberInput.value, subtract);
 })
 multiplyBtn.addEventListener("click", function() {
-  resultOutput.innerHTML = multiply(firstNumberInput.value, secondNumberInput.value);
+  resultOutput.innerHTML = calculate(firstNumberInput.value, secondNumberInput.value, multiply);
 })
 divideBtn.addEventListener("click", function() {
-  resultOutput.innerHTML = divide(firstNumberInput.value, secondNumberInput.value);
+  resultOutput.innerHTML = calculate(firstNumberInput.value, secondNumberInput.value, divide);
 })
 /*
   Create a function that multiplies two numbers
@@ -39,24 +39,21 @@ var multiply = function(num1, num2) {
   passed in as arguments. Return the sum.
  */
 var add = function(num1, num2) {
-  var result = num1 + num2;
-  return result;
+  return +num1 + +num2;
 }
 /*
   Create a function that subtracts two numbers
   passed in as arguments. Return the difference.
  */
 var subtract = function(num1, num2) {
-  var result = num1 - num2;
-  return result;
+  return num1 - num2;
 }
 /*
   Create a function that divides two numbers
   passed in as arguments. Return the quotient.
  */
 var divide = function(num1, num2) {
-  var result = num1 / num2;
-  return result;
+  return num1 / num2;
 }
 /*
   Create a function that accepts three arguments.
@@ -66,3 +63,6 @@ var divide = function(num1, num2) {
 
   Return the value of the operation.
  */
+var calculate = function(num1, num2, operation) {
+  return operation(num1, num2);
+}
